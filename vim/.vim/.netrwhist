@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/seno'
+let g:netrw_dirhist_2='/home/seno/testes/scripts'
+let g:netrw_dirhist_1='/var/lib/systemd/timesync'
+let g:netrw_dirhist_0='/home/seno/.config/nvim/lua/plugins'
+let g:netrw_dirhist_9='/home/seno/.config/nvim/lua'
+let g:netrw_dirhist_8='/home/seno/.config/nvim'
+let g:netrw_dirhist_7='/home/seno/.config/nvim/lua/seno'
+let g:netrw_dirhist_6='/home/seno/.config/nvim/lua'
+let g:netrw_dirhist_5='/home/seno/.config/nvim'
+let g:netrw_dirhist_4='/home/seno/.config'

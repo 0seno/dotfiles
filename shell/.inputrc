@@ -1,0 +1,20 @@
+# Cores nos bash completition
+set colored-stats on
+
+# Exibe o modo
+set show-mode-in-prompt on
+
+# Define string modo insert
+#set vi-ins-mode-string \1\e[38;2;162;146;163m\2[󰫶]\1\e[0m\2
+set vi-ins-mode-string \1\e[38;2;212;205;212m\2[󰫶]\1\e[0m\2
+# Define string modo normal
+set vi-cmd-mode-string \1\e[38;2;84;84;100m\2[󰫻]\1\e[0m\2
+
+# Delay do esc
+    set keyseq-timeout 130 
+$if mode=vi
+    set keymap vi-insert
+    "kj": vi-movement-mode
+$endif
+
+

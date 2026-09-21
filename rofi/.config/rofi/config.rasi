@@ -1,0 +1,8 @@
+/*@theme "/home/seno/.local/share/rofi/themes/squared-nord.rasi"*/
+@theme "/home/seno/.config/rofi/themes/squared-nord.rasi"
+
+configuration {
+ 	display-drun: "Executar:";
+ modi: [window, run, ssh, drun];  /* Adicione 'drun' ou outros modi que você deseja habilitar */
+}
+
