@@ -1,0 +1,118 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+command=/usr/share/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+
+
+# Fancy text with multiple colors and shapes
+#[funky]
+#full_text=<span foreground="#8fbcbb" size="x-large"> Be free, use Linux!󰙥</span>
+#markup=pango
+#color=#81a1c1
+#[click-loop]
+
+
+
+#full_text=<span foreground="red" size="x-large">󰳾</span>
+#command=echo "Bee free, use Linux"
+#color=#8fbcbb
+#markup=pango
+
+
+[memory]
+label= 
+#color=#d8dee9
+color=#c9cbd1
+separator=false
+interval=30
+
+
+[cpu_usage]
+color=#c9cbd1
+label=
+interval=10
+min_width=
+separator=false
+
+[temperature]
+label=
+#color=#d8dee9
+color=#c9cbd1
+interval=10
+separator=true
+min_width=te: 90.00%
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+
+[memory]
+#label= SWAP
+instance=
+#separator=false
+#interval=30
+
+# Disk usage
+#
+# The directory defaults to $HOME if the instance is not specified.
+# The script may be called with a optional argument to set the alert
+# (defaults to 10 for 10%).
+#[disk]
+#label=HOME
+#instance=/mnt/data
+#interval=30
+
+[iface]
+#instance=
+label= 󰛳
+color=#98BB6C
+interval=10
+separator=false
+
+
+[bandwidth]
+#instance=eth0
+color=#c9cbd1
+interval=5
+
+
+[time]
+color=#c9cbd1
+label= 󰸘
+command=date '+%d󰿟%m󰿟%Y 󱎫 %H:%M:%S'
+interval=1
+
+
+[volume]
+label= 
+color=#c9cbd1
+instance=Master
+#instance=PCM
+interval=once
+signal=10
+
