@@ -24,3 +24,9 @@ vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("i", "kj", "<Esc>")
 --vim.keymap.set("i", "KJ", "<Esc>")
+
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Mover para o painel da esquerda' })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Mover para o painel de baixo' })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Mover para o painel de cima' })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Mover para o painel da direita' })
+
