@@ -26,10 +26,5 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-#systemctl --user stop pulseaudio.socket
-#systemctl --user stop pulseaudio.service
-#systemctl --user start pulseaudio.service
-
-
-# vírgula em outra tecla.
-xmodmap -e "keycode 135 = comma less comma less U2022 multiply U2022"
+command -v nvim >/dev/null && EDITOR=nvim || EDITOR=vim
+command -v nvim >/dev/null && VISUAL=nvim || VISUAL=vim

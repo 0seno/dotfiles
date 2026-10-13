@@ -37,14 +37,13 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
- *) color_prompt=yes;;  
-#xterm-color|*-256color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -72,7 +71,7 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
+    alias grep='grep --color=auto'
     #alias fgrep='fgrep --color=auto'
     #alias egrep='egrep --color=auto'
 fi
@@ -106,26 +105,10 @@ if ! shopt -oq posix; then
 fi
 
 
-##NOVA VIRGULA
-# xmodmap -e "keycode 135 = comma less comma less U2022 multiply U2022"
-
-
 
 #MEUS ALIAS 
 
-alias grep='grep --color=always'
 alias ip='ip --color'
-
-
-#~/som.sh
-
-
-export TERM='alacritty'
-
-export PATH=/home/seno/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/seno/senoscript:/home/seno/.local/bin:/opt/nvim
-
-export VISUAL=vim
-export EDITOR=vim
 
 set -o vi
 
@@ -137,7 +120,6 @@ nhp() {
     nohup "$1" &> /dev/null
 }
 
-rpath() {
-local caminho="$(which $1)"
-echo $caminho
-}
+PROMPT_DIRTRIM=2
+
+export SUDO_EDITOR=/opt/nvim/nvim

@@ -73,7 +73,6 @@ set $refresh_i3status killall -SIGUSR1 i3status
 
 
 #exec_always --no-startup-id xkbset bo 45
-#exec --no-startup-id xmodmap -e "keycode 135 = comma less comma less U2022 multiply U2022"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

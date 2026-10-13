@@ -28,17 +28,6 @@ command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-
-
-# Fancy text with multiple colors and shapes
-#[funky]
-#full_text=<span foreground="#8fbcbb" size="x-large"> Be free, use Linux!󰙥</span>
-#markup=pango
-#color=#81a1c1
-#[click-loop]
-
-
-
 #full_text=<span foreground="red" size="x-large">󰳾</span>
 #command=echo "Bee free, use Linux"
 #color=#8fbcbb
