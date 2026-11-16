@@ -26,5 +26,17 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-command -v nvim >/dev/null && EDITOR=nvim || EDITOR=vim
-command -v nvim >/dev/null && VISUAL=nvim || VISUAL=vim
+##### Pessoal
+
+command -v nvim >/dev/null && export EDITOR=nvim || export EDITOR=vim
+command -v nvim >/dev/null && export VISUAL=nvim || export VISUAL=vim
+command -v nvim >/dev/null && export SUDO_EDITOR=nvim || export SUDO_EDITOR=nvim
+
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+
+export APT_PAGER='less -+S --wordwrap'
+export SYSTEMD_LESS='FRXMK --wordwrap'
+

@@ -11,6 +11,9 @@ return {
                 "vim",
                 "vimdoc",
                 "query",
+                "ini",
+                "yaml",
+                "toml",
             },
             highlight = {
                 enable = true,

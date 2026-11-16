@@ -1,3 +1,6 @@
+# Ativa o modo Vi
+set editing-mode vi
+
 # Cores nos bash completion
 set colored-stats on
 
@@ -21,14 +24,17 @@ $if mode=vi
     "kj": vi-movement-mode
 $endif
 
-# Ativa o modo Vi
-set editing-mode vi
 set show-mode-in-prompt on
 
 # Mudar formato do cursor
 set vi-ins-mode-string "\1\e[6 q\2"
 set vi-cmd-mode-string "\1\e[2 q\2"
 
+# Buscas no histórico baseado no texto digitado
 set keymap vi-command
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+set keymap vi-insert
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+

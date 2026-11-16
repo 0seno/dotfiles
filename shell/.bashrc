@@ -120,6 +120,15 @@ nhp() {
     nohup "$1" &> /dev/null
 }
 
-PROMPT_DIRTRIM=2
+ff() {
+    local cols pad gap=4
+    cols=$(tput cols)
 
-export SUDO_EDITOR=/opt/nvim/nvim
+    if   (( cols >= 120 )); then pad=15
+    else                         pad=6
+    fi
+
+    fastfetch --logo-padding-left "$pad" --logo-padding-right "$gap"
+}
+
+PROMPT_DIRTRIM=2

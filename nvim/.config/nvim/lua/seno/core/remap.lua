@@ -1,4 +1,3 @@
-vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Remove highlight de busca, e limpa o registrador contendo a última busca
@@ -14,7 +13,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
-vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>y", "\"+y") -- Copia para o clipboard sem afetar o buffer do nvim
 vim.keymap.set("v", "<leader>y", "\"+y")
 
 vim.keymap.set("n", "<leader>d", "\"_d")

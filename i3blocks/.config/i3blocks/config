@@ -28,19 +28,13 @@ command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-#full_text=<span foreground="red" size="x-large">󰳾</span>
-#command=echo "Bee free, use Linux"
-#color=#8fbcbb
-#markup=pango
-
 
 [memory]
 label= 
-#color=#d8dee9
+command=/home/seno/.local/bin/sway/mem_usage
 color=#c9cbd1
 separator=false
 interval=30
-
 
 [cpu_usage]
 color=#c9cbd1
@@ -89,13 +83,13 @@ separator=false
 color=#c9cbd1
 interval=5
 
-
-[time]
+[calendar]
 color=#c9cbd1
-label= 󰸘
-command=date '+%d󰿟%m󰿟%Y 󱎫 %H:%M:%S'
+label=󰸘
+command=/home/seno/.local/bin/sway/calendar
 interval=1
-
+separator=false
+min_width=
 
 [volume]
 label= 

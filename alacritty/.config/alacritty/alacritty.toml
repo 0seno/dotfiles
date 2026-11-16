@@ -1,0 +1,40 @@
+#decorations = "none"
+
+[font]
+size = 14.45
+
+[font.bold]
+family = "Hack Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "Hack Nerd Font Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "Hack Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font Mono"
+style = "Regular"
+
+[scrolling]
+history = 5000
+multiplier = 5
+
+[terminal.shell]
+program = "/usr/bin/bash"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 8
+y = 8
+
+[general]
+import = ["/home/seno/.config/alacritty/kanagawa-paper.toml"]
+
+[terminal]

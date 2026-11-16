@@ -18,12 +18,35 @@ set $term alacritty
 # Your preferred application launcher
 set $menu rofi -show drun -p "Executar:" --sm-disable
 
+########### INCLUDES ################
 include /etc/sway/config-vars.d/*
+include /etc/sway/config.d/*
+####################################
+
+exec systemctl --user start sway-session.target
+
 
 input "type:keyboard" {
     xkb_layout br
     xkb_variant abnt2
+
 }
+for_window [class="steam" title="^Lista de amigos$"] floating enable, resize set 380 700, move position cursor
+for_window [class="steam" title="^Steam — Configurações$"] floating enable
+for_window [class="steam" title="^Steam - News$"] floating enable
+for_window [title="^calendario$"] floating enable, move position cursor
+for_window [title="^Renomear$"] floating enable, sticky enable
+
+for_window [class="steam_app_.*"] allow_tearing yes
+for_window [app_id="imgshot"] border none
+
+for_window [class="Yad"] floating_enable
+# Script python do pacote autotiling
+exec_always autotiling
+
+# Monitor AOC 24G2
+output DP-3 mode 1920x1080@144Hz
+output DP-3 adaptive_sync on
 
 #================================================================
 ## Váriaveis
@@ -54,7 +77,7 @@ input "type:keyboard" {
 bar {
         
 	font pango: Hack Nerd Font Regular Bold 13
-
+        binding_mode_indicator no
 	status_command i3blocks
 	separator_symbol ""
         
@@ -70,7 +93,7 @@ bar {
 
 }
 
-for_window [class="Yad"] floating_enable
+
 
 # Status Bar:
 #
@@ -97,7 +120,7 @@ for_window [class="Yad"] floating_enable
 # This is commented in Debian, because the Sway wallpaper files are in a separate
 # package `sway-backgrounds`. Installing this package drops a config file to
 # /etc/sway/config.d/
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+ output * bg /home/seno/Img/wallpapers/pixel_pontes.jpg fill
 #
 # Example configuration:
 #
@@ -156,7 +179,7 @@ for_window [class="Yad"] floating_enable
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec "/home/seno/.local/bin/sway/rofi-shut.sh"
 #
 # Moving around:
 #
@@ -268,7 +291,7 @@ for_window [class="Yad"] floating_enable
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
-    bindsym Print exec grim
+    #bindsym Print exec grim
 
 #
 # Status Bar:
@@ -298,4 +321,27 @@ workspace 2 gaps outer 0
 
 default_border pixel 2
 
-include /etc/sway/config.d/*
+
+#----------- Screenshot-------------------
+set $copy_mode Screenshot to clipboard [F]ullscreen [S]election
+bindsym Print exec ~/.local/bin/sway/pre-shot.sh; mode "$copy_mode"; exec "sleep 0.3; notify-send -a screenshot -u critical \
+    'Copiar para o clipboard:' '[S]eleção [F]ullscreen'"
+
+mode "$copy_mode" {
+    bindsym s exec "fnottctl dismiss; copy_area=1 ~/.local/bin/sway/shot2.sh"; mode default
+    bindsym f exec "fnottctl dismiss; copy_full=1 ~/.local/bin/sway/shot2.sh"; mode default
+    bindsym Escape mode default; exec "fnottctl dismiss; pkill -f 'imgshot'; ~/.local/bin/sway/fullsc-restore.sh"
+}
+
+set $save_mode Screenshot Save/Copy: [F]ullscreen [S]election
+bindsym Shift+Print exec ~/.local/bin/sway/pre-shot.sh; mode "$save_mode"; exec "sleep 0.3; notify-send -a screenshot -u critical \
+    'Salvar captura de tela' '[S]eleção [F]ullscreen'"
+
+mode "$save_mode" {
+    bindsym s exec "fnottctl dismiss; save_area=1 ~/.local/bin/sway/shot2.sh"; mode default
+    bindsym f exec "fnottctl dismiss; save_full=1 ~/.local/bin/sway/shot2.sh"; mode default
+    bindsym Escape mode default; exec "fnottctl dismiss; pkill -f 'imgshot'; ~/.local/bin/sway/fullsc-restore.sh"
+}
+#---------------------------------------
+
+bindsym $mod+Shift+r exec ~/.local/bin/sway/rec-toggle.sh
